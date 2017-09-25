@@ -1,0 +1,82 @@
+
+/*Support*/
+#userid {
+    display : none;
+}
+/*Html, body*/
+html, body {
+	height: 100%;
+	background: #EADBC4;
+	padding: 0;
+	margin: 0;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+*{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#wrapper {
+	height: 100%;
+}
+#friend {
+	height: 100%;
+}
+
+/*Header*/
+header .row {
+	background: #2D3E52;
+	height: 70px;
+}
+	header .row #header-btn {
+		float: right;
+		padding: 12px;
+	}
+
+
+/*Friend list*/
+#friend #friend-list {
+	height: 100%;
+	border-right: 1px solid black;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+	#friend #friend-list .friend {
+		border-radius: 3px;
+		margin-bottom: 1px;
+		opacity: 0.9;
+		background-color: #94A3CD
+	}
+
+		#friend #friend-list .friend img{
+			padding: 5px;
+			height: 50px;
+		}
+#friend-panel{
+}
+
+#add-friend-panel {
+	position: fixed;
+	height: 140px;
+	width: 400px;
+	background: #EADBC4;
+	z-index: 100;
+	right: 37%;
+	box-shadow: 5px 0px 10px;
+}
+
+
+/*Message box*/
+#input-message {
+	position: fixed;
+	bottom: 20px;
+	width: 990px;
+}
+#message-window .message {
+	background: white;
+	margin: 5px;
+}
+#main #main-form {
+	margin: auto 0;
+}
