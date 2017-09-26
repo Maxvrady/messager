@@ -21,13 +21,11 @@ public class MessagerController {
     @Autowired
     private ProfileService profileService;
 
-    @Autowired
-    private AuthenticateService authenticateService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getMessagePage(@CookieValue("session_id") String userid, ModelMap modelMap) {
         try {
-            if (authenticateService.isAuthenticate(userid)) {
+            if (profileService.isAuthenticate(userid)) {
                 modelMap.put("userid", userid);
 
                 return "message";

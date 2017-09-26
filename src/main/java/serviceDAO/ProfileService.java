@@ -1,5 +1,6 @@
 package serviceDAO;
 
+import serviceDAO.services.AuthenticateService;
 import serviceDAO.services.MD5Service;
 import models.Profile;
 import org.hibernate.Session;
@@ -16,6 +17,23 @@ public class ProfileService {
 
     @Autowired
     private SessionFactory hibernateFactory;
+
+    @Autowired
+    private AuthenticateService authenticateService;
+
+    public Profile getUserOfMap(String userid) {
+        return authenticateService.getUser(userid);
+    }
+
+    public String addUser(Profile profile) {
+        return authenticateService.addUser(profile);
+    }
+
+    public Boolean isAuthenticate(String userid) {
+        return authenticateService.isAuthenticate(userid);
+    }
+
+
 
     public Profile addFriend(Profile profile, String username) {
         Session session = hibernateFactory.openSession();
@@ -48,7 +66,7 @@ public class ProfileService {
 
     }
 
-    public Profile getUser(String username) {
+    public Profile getUserOfDb(String username) {
 
         Session session = hibernateFactory.openSession();
         session.beginTransaction();

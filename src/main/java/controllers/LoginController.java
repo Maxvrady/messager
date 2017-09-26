@@ -13,7 +13,6 @@ import serviceDAO.services.MD5Service;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/login")
@@ -25,8 +24,6 @@ public class LoginController {
     @Autowired
     private ProfileService profileService;
 
-    @Autowired
-    private AuthenticateService authenticateService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getLoginPage(HttpServletResponse response, HttpServletRequest request) {
@@ -40,13 +37,13 @@ public class LoginController {
         Profile user;
 
         try {
-            user = profileService.getUser(username);
+            user = profileService.getUserOfDb(username);
         } catch (Exception e){
             return "login_page";
         }
 
         if (user.getPassword().equals(md5Service.getMD5Hash(password))) {
-            String userId = authenticateService.addUser(user);
+            String userId = profileService.addUser(user);
             Cookie cookie = new Cookie("session_id", userId);
             response.addCookie(cookie);
             return "redirect:/registration";
