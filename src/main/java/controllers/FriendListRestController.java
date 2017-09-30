@@ -4,7 +4,6 @@ import models.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import serviceDAO.ProfileService;
-import serviceDAO.services.AuthenticateService;
 
 @RestController
 public class FriendListRestController {

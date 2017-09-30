@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/maxouni_db</property>
+        <property name="hibernate.connection.username">maxouni</property>
+        <property name="hibernate.connection.password">009009salli</property>
+        <property name="hibernate.hbm2ddl">update</property>
+        <property name="hibernate.show_slq">true</property>
+        <property name="hibernate.format_slq">true</property>
+    </session-factory>
+</hibernate-configuration>

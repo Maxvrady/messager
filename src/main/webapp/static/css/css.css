@@ -53,7 +53,9 @@ header .row {
 			padding: 5px;
 			height: 50px;
 		}
-#friend-panel{
+#friend-panel h4{
+	display: inline-block;
+	margin-right: 5px;
 }
 
 #add-friend-panel {

@@ -1,4 +1,20 @@
 $('document').ready(function(){
+	/*
+	Load friendList on start
+	*/
+	$.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8080/MVC-1/friends",
+            success: function(result) {
+				var friends = result.split(",");
+				var friendList = $('#friend-list');
+				friendList.html("");
+				for (var i in friends) {
+					friendList.append(addFriendHtml(friends[i]));
+				}
+			}
+    });
+
 	var addPanel = $('#add-friend-panel');
     // Socket
     var socket;
@@ -6,7 +22,10 @@ $('document').ready(function(){
     var cookieId = $('#userid').text();
 
     /*Support functions*/
-
+	function addFriendHtml(username) {
+		var html = "<div class='friend'><div class='row'><div class='col-lg-3'><img src='img11.jpg' class='img-rounded'></div><div class='col-lg-9'><p>" + username + "</p></div></div></div>";
+		return html;
+	}
     // Json convert function
     function convertObjectToJson(Obj) {
         var jsonString = JSON.stringify(Obj);
@@ -36,6 +55,7 @@ $('document').ready(function(){
     }
 
     /*End socket function*/
+
     //$("button").click(function(){
         // Object to transfer json
         //var userObj = {
@@ -46,7 +66,9 @@ $('document').ready(function(){
 
         //socket.send(convertObjectToJson(userObj));
     //});
-	$('#open-add-panel').click(function() {
+
+	$('#open-add-panel').click(function(event) {
+		event.preventDefault();
 		addPanel.removeClass("hidden");
 	});
 
@@ -60,11 +82,19 @@ $('document').ready(function(){
 
 	});
 
-    $("#send-button").click(function(){
+    $("#reset-friend-list").click(function(event){
+        event.preventDefault();
         $.ajax({
             type: "GET",
             url: "http://127.0.0.1:8080/MVC-1/friends",
-            success: function(result) { console.log(result) }
+            success: function(result) {
+                var friends = result.split(",");
+                var friendList = $('#friend-list');
+                friendList.html("");
+                for (var i in friends) {
+                    friendList.append(addFriendHtml(friends[i]));
+                }
+            }
         });
     });
 

@@ -45,8 +45,13 @@
 				<div class="row">
 					<div id="friend-panel" class="col-lg-12">
 						<h4>
-							<a href="#">
+							<a href="">
 								<span id="open-add-panel" class="glyphicon glyphicon-plus"  aria-hidden="true" title="Add friend"></span>
+							</a>
+						</h4>
+						<h4>
+							<a href="#">
+								<span id="reset-friend-list" class="glyphicon glyphicon-repeat"  aria-hidden="true" title="Reset friend list"></span>
 							</a>
 						</h4>
 					</div>
@@ -58,9 +63,9 @@
 			<div id="add-friend-panel" class="hidden">
 				<div class="container-fluid">
 					<diw class="row">
-						<h5>
-						<span calss="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						</h5>
+						<h4>
+							<span calss="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</h4>
 						<p>Please enter username:</p>
 						<input type="text" name="" id="add-friend-input" placeholder="Enter username" class="form-control">
 						<button class="btn btn-primary" id="add-friend-button">Add friend</button>

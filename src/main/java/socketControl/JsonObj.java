@@ -9,6 +9,11 @@ public class JsonObj {
     public JsonObj() {
     }
 
+    public JsonObj(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
