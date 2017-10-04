@@ -81,14 +81,20 @@ public class ProfileService {
         return profile;
     }
 
-//    public List<Message> getDialog(String user, String user0) {
-//        Session session = hibernateFactory.openSession();
-//        session.beginTransaction();
-//
-//        session.createQuery("select Message M where author in (:users:) and send_to in (:users:)")
-//                .setParameter("users", user + "," + user0)
-//                .list();
-//    }
+    public List<Message> getDialog(String user, String user0) {
+        Session session = hibernateFactory.openSession();
+        session.beginTransaction();
+
+        String[] users = {user, user0};
+        List<Message> messageList = session.createQuery("from Message  where author in (:users) and to_send in (:users)")
+                .setParameterList("users", users)
+                .list();
+
+        session.getTransaction().commit();
+        session.close();
+        
+        return messageList;
+    }
 
     public ProfileService() {
     }

@@ -2,6 +2,7 @@ package controllers;
 
 import form.RegistrationForm;
 import models.Profile;
+import org.springframework.web.bind.annotation.CookieValue;
 import serviceDAO.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +21,26 @@ public class RegistrationController {
     private ProfileService profileService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getRegistrationPage(ModelMap modelMap) {
+    public String getRegistrationPage(ModelMap modelMap,
+                                      @CookieValue(value = "session_id", defaultValue = "null") String userid) {
+
+        if (profileService.isAuthenticate(userid)) {
+            return "redirect:/messager";
+        }
+
         modelMap.addAttribute("registrationForm", new RegistrationForm());
         return "registration_page";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String registration(@Valid RegistrationForm registrationForm, BindingResult result) {
+    public String registration(@Valid RegistrationForm registrationForm,
+                               BindingResult result,
+                               @CookieValue(value = "session_id", defaultValue = "null") String userid) {
+
+        if (profileService.isAuthenticate(userid)) {
+            return "redirect:/messager";
+        }
+
         if (result.hasErrors()) return "registration_page";
         Profile profile = new Profile();
 
@@ -37,5 +51,13 @@ public class RegistrationController {
 
         profileService.registrationProfile(profile);
         return "redirect:/login";
+    }
+
+    public ProfileService getProfileService() {
+        return profileService;
+    }
+
+    public void setProfileService(ProfileService profileService) {
+        this.profileService = profileService;
     }
 }

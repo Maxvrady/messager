@@ -19,7 +19,7 @@ public class MessagerController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getMessagePage(@CookieValue("session_id") String userid, ModelMap modelMap) {
+    public String getMessagePage(@CookieValue(value = "session_id", defaultValue = "null") String userid, ModelMap modelMap) {
         try {
             if (profileService.isAuthenticate(userid)) {
                 modelMap.put("userid", userid);
@@ -30,5 +30,13 @@ public class MessagerController {
         }catch (Exception e){
             return "redirect:/login";
         }
+    }
+
+    public ProfileService getProfileService() {
+        return profileService;
+    }
+
+    public void setProfileService(ProfileService profileService) {
+        this.profileService = profileService;
     }
 }

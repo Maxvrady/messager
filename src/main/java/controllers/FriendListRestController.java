@@ -35,4 +35,11 @@ public class FriendListRestController {
         return "BED";
     }
 
+    public ProfileService getProfileService() {
+        return profileService;
+    }
+
+    public void setProfileService(ProfileService profileService) {
+        this.profileService = profileService;
+    }
 }

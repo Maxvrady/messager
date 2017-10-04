@@ -76,20 +76,22 @@
 
 			<!-- Friend list -->
 			<div class="col-lg-3 col-md-3 col-sm-3" id="friend-list">
+				<a href="#">
 
-				<div class="friend">
+					<div class="friend">
 
-					<div class="row">
-						<div class="col-lg-3">
-							<img src="img11.jpg" class="img-rounded">
+						<div class="row">
+							<div class="col-lg-3">
+								<img src="img11.jpg" class="img-rounded">
+							</div>
+
+							<div class="col-lg-9">
+								<p>Maxouni</p>
+							</div>
 						</div>
 
-						<div class="col-lg-9">
-							<p>Maxouni</p>
-						</div>
 					</div>
-
-				</div>
+				</a>
 
 				<div class="friend">
 
@@ -110,7 +112,7 @@
 			<div class="col-lg-9 col-md-9 col-sm-9" id="message-window">
 
 				<div class="container-fluid">
-					<div class="row">
+					<div class="row" id="messages">
 
 						<div class="message">
 							<p>Author</p>
