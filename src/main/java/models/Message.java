@@ -20,6 +20,15 @@ public class Message {
     @Column(name = "text")
     private String text;
 
+    public Message() {
+    }
+
+    public Message(String author, String to_send, String text) {
+        this.author = author;
+        this.to_send = to_send;
+        this.text = text;
+    }
+
     public int getId() {
         return id;
     }

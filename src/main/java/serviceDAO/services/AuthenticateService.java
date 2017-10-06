@@ -13,7 +13,7 @@ public class AuthenticateService {
     @Autowired
     UserTokenService userTokenService;
 
-    private HashMap authenticatedUser = new HashMap<String, Profile>();
+    private HashMap<String, Profile> authenticatedUser = new HashMap<>();
 
     public String addUser(Profile profile) {
         String generatedToken = userTokenService.getUserToken();

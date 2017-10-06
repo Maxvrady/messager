@@ -23,6 +23,7 @@
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
+		<div id="session_id" class="hidden">${userid}</div>
 		<!-- Header -->
 		<header>
 				<div class="row">
@@ -111,23 +112,8 @@
 
 			<div class="col-lg-9 col-md-9 col-sm-9" id="message-window">
 
-				<div class="container-fluid">
-					<div class="row" id="messages">
-
-						<div class="message">
-							<p>Author</p>
-							<p>text message</p>
-						</div>
-
-						<div class="message">
-							<p>Author</p>
-							<p>text message</p>
-						</div>
-
-						<div class="message">
-							<p>Author</p>
-							<p>text message</p>
-						</div>
+				<div class="container-fluid" id="user-message">
+					<div class="row hidden" id="messages">
 
 					</div>
 				</div>

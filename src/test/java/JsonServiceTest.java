@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import serviceDAO.services.JsonService;
-import socketControl.JsonObj;
+import socketControl.jsonObj.JsonObj;
 
 import java.util.*;
 
@@ -20,14 +20,11 @@ public class JsonServiceTest {
     @Test
     public void getJsonAsMapTest() {
         final String JSONSTRING = "{ name: 'maxouni', born : {city : 'moskov', year : 2012} }";
+        final String json = "{\"method\":\"registration\",\"session_id\":\"[B@1ef5dc29\"}";
 
-        Map jsonPerson = jsonService.getJsonAsMap(JSONSTRING);
-        assertEquals(jsonPerson.get("name"), "maxouni");
+        Map jsonPerson = jsonService.getJsonAsMap(json);
+        assertEquals(jsonPerson.get("method"), "registration");
 
-        Map jsonPersonBorn = (Map) jsonPerson.get("born");
-
-        assertEquals(jsonPersonBorn.get("city"), "moskov");
-        assertEquals(jsonPersonBorn.get("year"), 2012.0);
     }
 
     @Test

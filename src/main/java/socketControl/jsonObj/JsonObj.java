@@ -1,4 +1,4 @@
-package socketControl;
+package socketControl.jsonObj;
 
 public class JsonObj {
 

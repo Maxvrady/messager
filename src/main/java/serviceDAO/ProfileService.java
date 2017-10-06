@@ -96,6 +96,16 @@ public class ProfileService {
         return messageList;
     }
 
+    public void saveMessage(Message message) {
+        Session session = hibernateFactory.openSession();
+        session.beginTransaction();
+
+        session.save(message);
+
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public ProfileService() {
     }
 
